@@ -32,13 +32,13 @@ async def on_message(message):
 		returm
 	#ignore commands like !ping
 	await bot.process_commands(message)
-	#send die message to daddy google
+	#send the message to daddy google
 	prompt = f""
 SYSTEM INSTRUCTIONS:
 {SYSTEM_INSTRUCTIONS}
 USER MESSAGE:
 {message.content}
-"""
+""
 
 	try:
 		response = model.generate_content(prompt)
@@ -47,4 +47,5 @@ USER MESSAGE:
 	except Exception as e:
 		print("im bugging bro look at ts:", e)
 		await message.channel.send("friggin google aint telling me what to say bro")
+
 bot.run(DISCORD_TOKEN)
